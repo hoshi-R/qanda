@@ -16,8 +16,9 @@
         <% @questions.each do |question| %>
           <tr>
             <td><%= question.id %></td>
-            <td><%= question.title %></td>
-            <td>[Edit] [Delete]</td>
+            <td><%= link_to question.title, question_path(question) %></td>
+            <td>[ <%= link_to '編集', edit_question_path(question) %> ] 
+                [ <%= link_to '削除', question_path(question), method: :delete, data:{ confirm: '削除しますか？' } %> ]</td>
           </tr>
         <% end %>
       </tbody>
